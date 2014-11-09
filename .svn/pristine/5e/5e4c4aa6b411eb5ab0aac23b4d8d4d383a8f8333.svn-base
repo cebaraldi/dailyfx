@@ -1,0 +1,67 @@
+@header_bgcolor: #dba901;
+@main_bgcolor: white;
+@footer_bgcolor: #999;// reduce 6 equal hex letters to 3
+
+@header_color: #8A4B08;
+@main_color: black;
+@footer_color: black;
+
+@widthGeneral: 500px;
+@padGeneral: 10px;
+@padTable: 5px;
+
+body {
+  background-color: #DDD; 
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#header {
+  /* padding: @padGeneral; */
+  background-color: @header_bgcolor;
+  color: @header_color;
+  text-align: center;
+}
+
+#container {
+  background-color: white; 
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main {
+  background-color: @main_bgcolor;
+  color: @main_color;  
+  /* align: left; */ 
+}
+
+table, th, td {
+  border:1px solid black;
+  border-collapse:collapse;
+}
+th, td {
+  padding-left: @padTable;
+  padding-right: @padTable;
+}
+th{text-align: center;} 
+td{
+  font-family: Courier;
+} 
+
+/* Control alignment of columns using class selector */
+._1stcol {text-align: center;}
+._2ndcol {text-align: right;}
+
+#footer {
+  clear: both;
+  /* padding: @padGeneral; */
+  background-color: @footer_bgcolor;
+  color: @footer_color;
+  text-align: right;
+}
+
+#gui {
+  width: 250px;
+  float: left;
+}
+

@@ -1,0 +1,39 @@
+@(subject: String, name: String, date: String, fx: Array[(String, String)])
+@*, version: String, appName: String) *@
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Daily Fx " + subject) {
+  <div id="container">
+    <div id="header">
+      <h2>@name</h2>
+      <h2>@subject</h2>
+      <h2>@date</h2>
+    </div>
+    <div id="main">
+      <table>
+        <tr><th>Currency</th><th>Rate</th></tr>	
+        @fx.map{data => 
+          <tr>
+	          <td class="_1stcol">@data._1</td>
+	          <td class="_2ndcol">@data._2</td>
+          </tr>
+        }
+      </table>
+    </div>
+    <div id="footer">
+	<div id="gui">
+	  @helper.form(action = routes.Application.handle) {
+	    <button type="submit" name="action" value="pdf">PDF</button> 
+	    <button type="submit" name="action" value="csv">CSV</button> 
+	  }
+  	</div>
+        @play.Play.application.configuration.getString("appName"), version 
+        @play.Play.application.configuration.getString("version"); CopyLeft 
+        <img border="0" src="@routes.Assets.at("images/Copyleft.png")" 
+        alt="CopyLeft" width="14" title="cebaraldi@@gmail.com"> 
+        2014 ceb
+    </div>
+  </div>
+}
